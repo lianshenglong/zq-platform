@@ -20,12 +20,7 @@
 [https://doc.zq-platform.com](https://doc.zq-platform.com/)
 
 ## 演示链接
-### 探索无敌版本
 [https://demo.zq-platform.com](https://demo.zq-platform.com/)
-### Django
-[https://django-ninja.zq-platform.cn](https://django-ninja.zq-platform.cn/)
-### FastAPI
-[https://fastapi.zq-platform.cn](https://fastapi.zq-platform.cn/)
 
 ## 演示账户
 **账号**: yangfei
