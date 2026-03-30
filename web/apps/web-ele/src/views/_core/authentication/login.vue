@@ -61,7 +61,6 @@ const formSchema = computed((): VbenFormSchema[] => {
       componentProps: {
         // placeholder: $t('authentication.usernameTip'),
         placeholder: $t('authentication.loginSubtitle'),
-        disabled: true,
       },
 
       // dependencies: {
@@ -90,7 +89,6 @@ const formSchema = computed((): VbenFormSchema[] => {
       componentProps: {
         // placeholder: $t('authentication.password'),
         placeholder: $t('authentication.loginSubtitle'),
-        disabled: true,
       },
       defaultValue: '',
       fieldName: 'password',

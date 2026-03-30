@@ -3,7 +3,7 @@
 # 数据库类型 MYSQL/SQLSERVER/SQLITE3/POSTGRESQL
 import os
 
-DATABASE_TYPE = "POSTGRESQL"
+DATABASE_TYPE = "SQLITE3"
 # 数据库地址
 DATABASE_HOST = "django-ninja.zq-platform.cn"
 # 数据库端口
