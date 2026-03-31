@@ -65,6 +65,18 @@ ROOT_URLCONF = 'application.urls'
 AUTH_USER_MODEL = 'core.User'
 
 WSGI_APPLICATION = 'application.wsgi.application'
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.request',
+            ],
+        },
+    },
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/

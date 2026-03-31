@@ -28,6 +28,28 @@ class DatabaseManagerService:
     """数据库管理服务工厂"""
 
     @staticmethod
+    def _normalize_port(db_type: str, raw_port) -> int:
+        """将数据库端口规范化为整数，避免响应校验失败"""
+        default_port_map = {
+            'postgresql': 5432,
+            'mysql': 3306,
+            'sqlserver': 1433,
+            'sqlite': 0,
+            'oracle': 1521,
+            'unknown': 0,
+        }
+        default_port = default_port_map.get(db_type, 0)
+
+        if raw_port is None or raw_port == '':
+            return default_port
+
+        try:
+            return int(raw_port)
+        except (TypeError, ValueError):
+            logger.warning(f"Invalid database port value: {raw_port!r}, fallback to {default_port}")
+            return default_port
+
+    @staticmethod
     def get_handler(db_name: str = "default") -> BaseDatabaseHandler:
         """
         根据数据库类型获取对应的处理器
@@ -78,8 +100,8 @@ class DatabaseManagerService:
                 'db_name': db_name,
                 'name': db_config.get('NAME', db_name),
                 'db_type': db_type,
-                'host': db_config.get('HOST', 'localhost'),
-                'port': db_config.get('PORT', 5432),
+                'host': db_config.get('HOST') or 'localhost',
+                'port': DatabaseManagerService._normalize_port(db_type, db_config.get('PORT')),
                 'database': db_config.get('NAME', ''),
                 'user': db_config.get('USER', ''),
                 'has_password': bool(db_config.get('PASSWORD', ''))
