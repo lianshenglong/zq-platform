@@ -45,7 +45,9 @@ python manage.py loaddata db_init.json
 ```bash
 python manage.py runserver 0.0.0.0:8000
 ```
-
+```bash
+python -m uvicorn application.asgi:application --host 0.0.0.0 --port 8000 --reload --log-level info
+```
 
 ## 数据导出
  python manage.py dumpdata > db_init.json
